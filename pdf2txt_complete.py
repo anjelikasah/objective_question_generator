@@ -3,6 +3,7 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from pdfminer.pdfpage import PDFPage
 from io import StringIO
+from main_algorithm import objective_generator
 
 def convert_pdf_to_txt(path):
     rsrcmgr = PDFResourceManager()
@@ -25,7 +26,8 @@ def convert_pdf_to_txt(path):
     fp.close()
     device.close()
     retstr.close()
-    return text
-
-pdfFileObj=convert_pdf_to_txt('c://Users//admin//AppData//Local//Programs//Python//Python37-32//pdf//mtt_report.pdf')
-print (pdfFileObj)
+    objective_generator(text)
+    
+if __name__ =="__main__":
+    pdfFileObj=convert_pdf_to_txt('c://Users//admin//AppData//Local//Programs//Python//Python37-32//pdf//mtt_report.pdf')
+    print (pdfFileObj)
